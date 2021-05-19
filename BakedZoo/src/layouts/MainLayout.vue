@@ -1,6 +1,12 @@
 <template>
-  <q-layout view="lHh Lpr lFf">
-    <q-header class="bg-white">
+  <q-layout view="lHh Lpr lFf" class="bg-accent bg-image">
+    <q-img
+      src="~assets/BackgroundLeafCropped.png"
+      native-context-menu
+      basic
+    />
+
+    <q-header class="bg-transparent">
       <q-toolbar>
         <q-btn
           flat
