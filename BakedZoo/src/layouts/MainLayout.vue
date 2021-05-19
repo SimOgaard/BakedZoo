@@ -36,26 +36,12 @@
       </q-list>
     </q-drawer>
 
-    <q-card>
-      <q-footer class="bg-white">
-        <q-tabs v-model="tab" indicator-color="transparent" active-color="primary" class="text-grey-7">
-          <q-tab name="home" icon="home"></q-tab>
-          <q-tab name="shop" icon="shopping_bag"></q-tab>
-        </q-tabs>
-      </q-footer>
-
-      <q-tab-panels v-model="tab" animated>
-        <q-tab-panel name="home">
-          <div class="text-h6">home</div>
-          <div class="text-h6">home</div>
-        </q-tab-panel>
-
-        <q-tab-panel name="shop">
-          <div class="text-h6">shop</div>
-          <div class="text-h6">shop</div>
-        </q-tab-panel>
-      </q-tab-panels>
-    </q-card>
+    <q-footer class="bg-white">
+      <q-tabs indicator-color="transparent" active-color="primary" class="text-grey-7">
+        <q-tab icon="home" @click="Route('home')"></q-tab>
+        <q-tab icon="shopping_bag" @click="Route('shop')"></q-tab>
+      </q-tabs>
+    </q-footer>
 
     <q-page-container>
       <router-view />
@@ -119,6 +105,16 @@ export default {
       leftDrawerOpen: false,
       tab: 'home',
       essentialLinks: linksData
+    }
+  },
+  methods:{
+    Route(newTab)
+    {
+      if (newTab != this.tab)
+      {
+        this.$router.push(newTab);
+        this.tab = newTab;
+      }
     }
   }
 }
