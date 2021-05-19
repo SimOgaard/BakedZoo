@@ -1,13 +1,18 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-btn
-      flat
-      dense
-      round
-      icon="menu"
-      aria-label="Menu"
-      @click="leftDrawerOpen = !leftDrawerOpen"
-    />
+    <q-header elevated class="bg-white">
+      <q-toolbar>
+        <q-btn
+          flat
+          dense
+          round
+          icon="menu"
+          aria-label="Menu"
+          color="black"
+          @click="leftDrawerOpen = !leftDrawerOpen"
+        />
+      </q-toolbar>
+    </q-header>
     
     <q-footer bordered class="bg-white text-primary">
       <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
