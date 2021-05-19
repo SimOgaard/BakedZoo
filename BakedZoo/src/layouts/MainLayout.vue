@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-header elevated class="bg-white">
+    <q-header class="bg-white">
       <q-toolbar>
         <q-btn
           flat
@@ -8,19 +8,12 @@
           round
           icon="menu"
           aria-label="Menu"
-          color="black"
+          color="grey-7"
           @click="leftDrawerOpen = !leftDrawerOpen"
         />
       </q-toolbar>
     </q-header>
     
-    <q-footer bordered class="bg-white text-primary">
-      <q-tabs no-caps active-color="primary" indicator-color="transparent" class="text-grey" v-model="tab">
-        <q-tab name="images" label="Images"></q-tab>
-        <q-tab name="videos" label="Videos"></q-tab>
-        <q-tab name="articles" label="Articles"></q-tab>
-      </q-tabs>
-    </q-footer>
 
     <q-drawer
       v-model="leftDrawerOpen"
@@ -42,6 +35,27 @@
         />
       </q-list>
     </q-drawer>
+
+    <q-card>
+      <q-footer class="bg-white">
+        <q-tabs v-model="tab" indicator-color="transparent" active-color="primary" class="text-grey-7">
+          <q-tab name="home" icon="home"></q-tab>
+          <q-tab name="shop" icon="shopping_bag"></q-tab>
+        </q-tabs>
+      </q-footer>
+
+      <q-tab-panels v-model="tab" animated>
+        <q-tab-panel name="home">
+          <div class="text-h6">home</div>
+          <div class="text-h6">home</div>
+        </q-tab-panel>
+
+        <q-tab-panel name="shop">
+          <div class="text-h6">shop</div>
+          <div class="text-h6">shop</div>
+        </q-tab-panel>
+      </q-tab-panels>
+    </q-card>
 
     <q-page-container>
       <router-view />
@@ -103,6 +117,7 @@ export default {
   data () {
     return {
       leftDrawerOpen: false,
+      tab: 'home',
       essentialLinks: linksData
     }
   }
