@@ -1,25 +1,64 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-accent bg-image">
     <q-img
-      src="~assets/BackgroundLeafCropped.png"
-      native-context-menu
+      src="~assets/BackgroundLeafCroppedWithAnimals.png"
       basic
+      fit="cover"
+      style="position: absolute; width: 375px; height: 765px"
     />
 
     <q-header class="bg-transparent">
-      <q-toolbar>
-        <q-btn
-          flat
-          dense
-          round
-          icon="menu"
-          aria-label="Menu"
-          color="grey-7"
-          @click="leftDrawerOpen = !leftDrawerOpen"
-        />
+      <q-toolbar class="justify-between">
+        <div>
+          <q-btn
+            flat
+            dense
+            round
+            icon="menu"
+            aria-label="Menu"
+            color="black"
+            size="lg"
+            @click="leftDrawerOpen = !leftDrawerOpen"
+          />
+        </div>
+
+        
+        <div>
+          <q-btn
+            flat
+            dense
+            round
+            icon="person_add"
+            aria-label="Person_add"
+            color="black"
+            size="lg"
+            @click="Route('createAccount')"
+          />
+          <q-btn
+            flat
+            dense
+            round
+            icon="logout"
+            aria-label="Logout"
+            color="black"
+            size="lg"
+            v-if="IsLoggedIn"
+            @click="alert = true"
+          />
+          <q-btn
+            flat
+            dense
+            round
+            icon="login"
+            aria-label="Login"
+            color="black"
+            size="lg"
+            v-else
+            @click="Route('login')"
+          />
+        </div>
       </q-toolbar>
     </q-header>
-    
 
     <q-drawer
       v-model="leftDrawerOpen"
@@ -32,7 +71,12 @@
           header
           class="text-grey-8"
         >
-          Essential Links
+          <div v-if="IsLoggedIn">
+            Du är inloggad som _ANVÄNDARE_
+          </div>
+          <div v-else>
+            Du är inte inloggad
+          </div>
         </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
@@ -42,15 +86,52 @@
       </q-list>
     </q-drawer>
 
-    <q-footer class="bg-white">
-      <q-tabs indicator-color="transparent" active-color="primary" class="text-grey-7">
-        <q-tab icon="home" @click="Route('home')"></q-tab>
-        <q-tab icon="shopping_bag" @click="Route('shop')"></q-tab>
-      </q-tabs>
+    <q-footer class="row justify-around bg-white">
+      <div @click="Route('home')">
+        <q-btn
+          v-model="tab"
+          name="home"
+          flat
+          dense
+          icon="home"
+          aria-label="home"
+          :color="colorHome"
+          size="xl"
+        />
+      </div>
+      <div @click="Route('shop')">
+        <q-btn
+          v-model="tab"
+          name="shopping_bag"
+          flat
+          dense
+          icon="shopping_bag"
+          aria-label="shopping_bag"
+          :color="colorShop"
+          size="xl"
+        />
+      </div>
+      <!-- <q-tabs v-model="tab" indicator-color="transparent" active-color="primary" class="text-grey-7">
+        <q-route-tab name="home" icon="home" @click="Route('home')"></q-route-tab>
+        <q-route-tab name="shop" icon="shopping_bag" @click="Route('shop')"></q-route-tab>
+      </q-tabs> -->
     </q-footer>
 
+    <q-dialog v-model="alert">
+      <q-card>
+        <q-card-section class="row items-center">
+          <span class="q-ml-sm">Är du säker på att du vill logga ut?</span>
+        </q-card-section>
+
+        <q-card-actions>
+          <q-btn flat label="Nej" color="primary" v-close-popup></q-btn>
+          <q-btn flat label="Ja" color="primary" v-close-popup @click="IsLoggingIn(false)"></q-btn>
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
     <q-page-container>
-      <router-view />
+      <router-view @Route="Route" @IsLoggingIn="IsLoggingIn"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -110,7 +191,11 @@ export default {
     return {
       leftDrawerOpen: false,
       tab: 'home',
-      essentialLinks: linksData
+      essentialLinks: linksData,
+      IsLoggedIn: false,
+      colorHome: 'grey-7',
+      colorShop: 'grey-7',
+      alert: false
     }
   },
   methods:{
@@ -120,8 +205,36 @@ export default {
       {
         this.$router.push(newTab);
         this.tab = newTab;
+        this.ChangeButtonColors();
+      }
+    },
+    IsLoggingIn(isLoggingIn)
+    {
+      this.IsLoggedIn = isLoggingIn;
+    },
+    ChangeButtonColors() // EEEEEEEEW FUCK VARIABLER I QUASAR EEEEEEEEEW
+    {
+      if (this.tab == 'home')
+      {
+        this.colorHome = 'primary';
+        this.colorShop = 'grey-7';
+      }
+      else if (this.tab == 'shop')
+      {
+        this.colorHome = 'grey-7';
+        this.colorShop = 'primary';
+      }
+      else
+      {
+        this.colorHome = 'grey-7';
+        this.colorShop = 'grey-7';
       }
     }
+  },
+  mounted ()
+  {
+    this.tab = this.$router.history.current.path.substring(1);
+    this.ChangeButtonColors();
   }
 }
 </script>
