@@ -6,10 +6,11 @@ const routes = [
     children: [
       { path: '', component: () => import('pages/Redirect.vue') },
       { path: 'Home', component: () => import('pages/Home.vue') },
-      { path: 'Home/cakeInfo', component: () => import('pages/CakeInfo.vue') },
+      { path: 'CakeInfo', component: () => import('pages/CakeInfo.vue') },
       { path: 'Shop', component: () => import('pages/Shop.vue') },
       { path: 'Login', component: () => import('pages/Login.vue') },
-      { path: 'CreateAccount', component: () => import('pages/CreateAccount.vue') }
+      { path: 'CreateAccount', component: () => import('pages/CreateAccount.vue') },
+      { path: 'ManageAccount', component: () => import('pages/ManageAccount.vue') }
     ]
   },
 

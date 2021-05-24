@@ -6,11 +6,14 @@
   "author": "abbsimoga <Simon.OgaardJozic@abbindustrigymnasium.se>",
   "private": true,
   "scripts": {
-    "test": "echo \"No test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-server": "json-server --watch db.json"
   },
   "dependencies": {
     "@quasar/extras": "^1.0.0",
+    "axios": "^0.21.1",
     "core-js": "^3.6.5",
+    "json-server": "^0.16.3",
     "quasar": "^1.0.0"
   },
   "devDependencies": {

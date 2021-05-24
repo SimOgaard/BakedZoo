@@ -4,7 +4,7 @@
       src="~assets/BackgroundLeafCroppedWithAnimals.png"
       basic
       fit="cover"
-      style="position: absolute; width: 375px; height: 765px"
+      style="position: fixed; width: 375px; height: 765px"
     />
 
     <q-header class="bg-transparent">
@@ -28,10 +28,22 @@
             flat
             dense
             round
+            icon="manage_accounts"
+            aria-label="Manage_accounts"
+            color="black"
+            size="lg"
+            v-if="IsLoggedIn"
+            @click="Route('manageAccount')"
+          />
+          <q-btn
+            flat
+            dense
+            round
             icon="person_add"
             aria-label="Person_add"
             color="black"
             size="lg"
+            v-else
             @click="Route('createAccount')"
           />
           <q-btn
@@ -67,17 +79,6 @@
       content-class="bg-grey-1"
     >
       <q-list>
-        <q-item-label
-          header
-          class="text-grey-8"
-        >
-          <div v-if="IsLoggedIn">
-            Du är inloggad som _ANVÄNDARE_
-          </div>
-          <div v-else>
-            Du är inte inloggad
-          </div>
-        </q-item-label>
         <EssentialLink
           v-for="link in essentialLinks"
           :key="link.title"
@@ -87,29 +88,37 @@
     </q-drawer>
 
     <q-footer class="row justify-around bg-white">
-      <div @click="Route('home')">
-        <q-btn
-          v-model="tab"
-          name="home"
-          flat
-          dense
-          icon="home"
-          aria-label="home"
-          :color="colorHome"
-          size="xl"
-        />
+      <div class="col" @click="Route('home')">
+        <div class="row justify-center">
+          <q-btn
+            :ripple="false"
+            v-model="tab"
+            name="home"
+            flat
+            dense
+            icon="home"
+            aria-label="home"
+            :color="colorHome"
+            size="xl"
+          />
+        </div>
       </div>
-      <div @click="Route('shop')">
-        <q-btn
-          v-model="tab"
-          name="shopping_bag"
-          flat
-          dense
-          icon="shopping_bag"
-          aria-label="shopping_bag"
-          :color="colorShop"
-          size="xl"
-        />
+      <div class="col" @click="Route('shop')">
+        <div class="row justify-center">
+          <q-btn
+            :ripple="false"
+            v-model="tab"
+            name="shopping_bag"
+            flat
+            dense
+            icon="shopping_bag"
+            aria-label="shopping_bag"
+            :color="colorShop"
+            size="xl"
+          >
+            <q-badge color="orange" class="q-mt-sm" floating>{{allCakesAmount}}</q-badge>
+          </q-btn>
+        </div>
       </div>
       <!-- <q-tabs v-model="tab" indicator-color="transparent" active-color="primary" class="text-grey-7">
         <q-route-tab name="home" icon="home" @click="Route('home')"></q-route-tab>
@@ -120,24 +129,25 @@
     <q-dialog v-model="alert">
       <q-card>
         <q-card-section class="row items-center">
-          <span class="q-ml-sm">Är du säker på att du vill logga ut?</span>
+          <span class="q-ml-sm">Are you shure you want to logout?</span>
         </q-card-section>
 
-        <q-card-actions>
-          <q-btn flat label="Nej" color="primary" v-close-popup></q-btn>
-          <q-btn flat label="Ja" color="primary" v-close-popup @click="IsLoggingIn(false)"></q-btn>
+        <q-card-actions class="flex-center q-pt-none justify-around">
+          <q-btn flat label="Yes, log out" class="bg-primary" color="white" v-close-popup @click="IsLoggingIn(false)"></q-btn>
+          <q-btn flat label="Cancel" color="primary" v-close-popup></q-btn>
         </q-card-actions>
       </q-card>
     </q-dialog>
 
     <q-page-container>
-      <router-view @Route="Route" @IsLoggingIn="IsLoggingIn"/>
+      <router-view @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
     </q-page-container>
   </q-layout>
 </template>
 
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
+import axios from 'axios';
 
 const linksData = [
   {
@@ -195,7 +205,11 @@ export default {
       IsLoggedIn: false,
       colorHome: 'grey-7',
       colorShop: 'grey-7',
-      alert: false
+      alert: false,
+      selectedCake: null,
+      cakesFromWeb: null,
+      allCakes: [],
+      allCakesAmount: 0
     }
   },
   methods:{
@@ -229,10 +243,68 @@ export default {
         this.colorHome = 'grey-7';
         this.colorShop = 'grey-7';
       }
+    },
+    SelectedCake(Cake)
+    {
+      this.selectedCake = Cake;
+    },
+    AddToCart()
+    {
+      this.allCakesAmount++;
+      var isInList = false;
+
+      this.allCakes.forEach(element => {
+        isInList = element.id == this.selectedCake.id && !isInList;
+        if (isInList){
+          element.amountInShoppingCart++;
+        }
+      });
+
+      var selectedCakeWithAmountInShoppingCart = {
+        id: this.selectedCake.id,
+        title: this.selectedCake.title,
+        previewDescription: this.selectedCake.previewDescription,
+        detailDescription: this.selectedCake.detailDescription,
+        image: this.selectedCake.image,
+        price: this.selectedCake.price,
+        amountInShoppingCart: 1
+      };
+
+      if (!isInList)
+      {
+        this.allCakes.push(selectedCakeWithAmountInShoppingCart);
+      }
+    },
+    AddToAmount(amount, index)
+    {
+      this.allCakesAmount += amount;
+      this.allCakes[index].amountInShoppingCart += amount;
+    },
+    PopFromCart(index)
+    {
+      this.allCakesAmount -= this.allCakes[index].amountInShoppingCart;
+
+      var currentIndex = 0;
+      var newAllCakes = [];
+      this.allCakes.forEach(element => {
+        if (currentIndex != index){
+          newAllCakes.push(element);
+        }
+        currentIndex++;
+      });
+      this.allCakes = newAllCakes;
     }
   },
   mounted ()
   {
+    axios.get('http://localhost:3000/cakes')
+    .then(response => {
+      this.cakesFromWeb = response.data
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
+
     this.tab = this.$router.history.current.path.substring(1);
     this.ChangeButtonColors();
   }
