@@ -8,7 +8,7 @@
       :style="style"
     /> 
 
-    <q-header class="bg-transparent">
+    <q-header class="bg-transparent" style="white-space: nowrap;">
       <q-toolbar class="justify-between">
         <div>
           <q-btn
@@ -135,13 +135,13 @@
 
         <q-card-actions class="flex-center q-pt-none justify-around">
           <q-btn flat label="Yes, log out" class="bg-primary" color="white" v-close-popup @click="IsLoggingIn(false)"></q-btn>
-          <q-btn flat label="Cancel" color="primary" v-close-popup></q-btn>
+          <q-btn flat label="Cancel" color="red" v-close-popup></q-btn>
         </q-card-actions>
       </q-card>
     </q-dialog>
 
     <q-page-container>
-      <router-view @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
+      <router-view @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -193,7 +193,8 @@ export default {
       selectedCake: null,
       cakesFromWeb: null,
       allCakes: [],
-      allCakesAmount: 0
+      allCakesAmount: 0,
+      allOrders:[]
     }
   },
   methods:{
@@ -280,6 +281,20 @@ export default {
         currentIndex++;
       });
       this.allCakes = newAllCakes;
+    },
+    PlaceOrder()
+    {
+      this.allOrders.push(this.allCakes);
+      this.allCakes = [];
+      this.allCakesAmount = 0;
+    },
+    onResize (size) {
+      console.log(size);
+      this.Rezise();
+    },
+    Rezise () {
+      this.style.height=window.screen.height-50+'px';
+      this.style.width= window.screen.width +'px';
     }
   },
   mounted ()

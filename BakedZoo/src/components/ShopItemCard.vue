@@ -9,7 +9,7 @@
 
         <q-card-section class="row q-pt-md q-pb-none">
           <q-btn class="col bg-transparent" size="md" flat/>
-          <h6 class="col text-white text-weight-bold text-center q-mt-none q-mb-none">{{price}}$</h6>
+          <h6 class="col text-white text-weight-bold text-center q-mt-none q-mb-none">{{amountInShoppingCart}}st</h6>
           <q-btn class="col bg-transparent" size="md" flat/>
         </q-card-section>
 
@@ -24,7 +24,7 @@
           color="black"
           size="md"
         />
-        <h6 class="col text-primary text-weight-bold text-center q-mt-none q-mb-none">{{price}}$</h6>
+        <h6 class="bg-grey-4 col text-black text-weight-medium text-center q-mt-none q-mb-none" style="border-radius: 10px">{{amountInShoppingCart}}</h6>
         <q-btn
           class="col bg-transparent"
           @click="AddToAmount(-1)"

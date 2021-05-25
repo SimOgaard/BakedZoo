@@ -1,12 +1,13 @@
 # BakedZoo
 
 ## TODO:
-background image
-
 hamburgaren måste antingen tas bort eller ba fixas med info om oss längst ner till vänster och annat skit över oss
+länk till pending orders
 
-shop utseende
+
 
 se och ändra konto utseende samt funktionalitet
 
-col-6, col-4, col-3, col-2 in CakeCard dependent on screen size
+place order button 
+would you like to see all pending orders?
+Yes, No
