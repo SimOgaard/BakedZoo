@@ -8,7 +8,7 @@
       :style="style"
     /> 
 
-    <q-header class="bg-transparent">
+    <q-header class="bg-transparent" style="white-space: nowrap;">
       <q-toolbar class="justify-between">
         <div>
           <q-btn
@@ -117,7 +117,7 @@
             :color="colorShop"
             size="xl"
           >
-            <q-badge color="orange" class="q-mt-sm" floating>{{allCakesAmount}}</q-badge>
+            <q-badge v-if="allCakesAmount != 0" color="orange" class="q-mt-sm" floating>{{allCakesAmount}}</q-badge>
           </q-btn>
         </div>
       </div>
