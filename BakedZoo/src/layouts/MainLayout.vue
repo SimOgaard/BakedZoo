@@ -1,6 +1,5 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-accent bg-image">
-    <q-resize-observer @resize="onResize" />
     <q-img
       src="~assets/BackgroundLeafCroppedWithAnimals.png"
       basic
@@ -152,46 +151,16 @@ import axios from 'axios';
 
 const linksData = [
   {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
+    title: 'Our Staff',
+    caption: 'The desguised heros of our kitchen',
+    icon: 'People',
     link: 'https://quasar.dev'
   },
   {
-    title: 'Github',
+    title: 'Settings',
     caption: 'github.com/quasarframework',
     icon: 'code',
     link: 'https://github.com/quasarframework'
-  },
-  {
-    title: 'Discord Chat Channel',
-    caption: 'chat.quasar.dev',
-    icon: 'chat',
-    link: 'https://chat.quasar.dev'
-  },
-  {
-    title: 'Forum',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'https://forum.quasar.dev'
-  },
-  {
-    title: 'Twitter',
-    caption: '@quasarframework',
-    icon: 'rss_feed',
-    link: 'https://twitter.quasar.dev'
-  },
-  {
-    title: 'Facebook',
-    caption: '@QuasarFramework',
-    icon: 'public',
-    link: 'https://facebook.quasar.dev'
-  },
-  {
-    title: 'Quasar Awesome',
-    caption: 'Community Quasar projects',
-    icon: 'favorite',
-    link: 'https://awesome.quasar.dev'
   }
 ];
 
@@ -295,18 +264,12 @@ export default {
         currentIndex++;
       });
       this.allCakes = newAllCakes;
-    },
-    onResize (size) {
-      console.log(size);
-      this.style= {
-        position: 'fixed', 
-        width: size.width+ 'px', 
-        height: size.height -58 +'px'
-      }
     }
   },
   mounted ()
   {
+    this.style.height=window.screen.height-50+'px';
+    this.style.width= window.screen.width +'px';
     axios.get('http://localhost:3000/cakes')
     .then(response => {
       this.cakesFromWeb = response.data
