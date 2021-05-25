@@ -1,5 +1,59 @@
 <template>
-  <div class="q-pa-sm" style="width:100%">
+  <q-item :class="$q.screen.lt.sm ? 'col-6' : ($q.screen.lt.md ? 'col-4' : 'col-3')" class="q-pa-sm">
+    <q-card class="bg-white" style="border-radius: 15px; height:100%">
+      <img :src="image" style="object-fit: cover;" height="150px">
+
+      <q-card-section class="q-pt-sm q-pl-sm q-pb-sm">
+        <p class="text-primary text-weight-bold q-mb-none">{{title}}</p>
+        <p class="q-mb-none text-italic text-caption text-weight-light">{{previewDescription}}</p>
+
+        <q-card-section class="row q-pt-md q-pb-none">
+          <q-btn class="col bg-transparent" size="md" flat/>
+          <h6 class="col text-white text-weight-bold text-center q-mt-none q-mb-none">{{price}}$</h6>
+          <q-btn class="col bg-transparent" size="md" flat/>
+        </q-card-section>
+
+      </q-card-section>
+      
+      <q-card-section class="row absolute-bottom">
+        <q-btn class="col bg-transparent" @click="AddToAmount(1)"
+          flat
+          dense
+          icon="add"
+          aria-label="add"
+          color="black"
+          size="md"
+        />
+        <h6 class="col text-primary text-weight-bold text-center q-mt-none q-mb-none">{{price}}$</h6>
+        <q-btn
+          class="col bg-transparent"
+          @click="AddToAmount(-1)"
+          flat
+          dense
+          icon="remove"
+          aria-label="remove"
+          color="black"
+          size="md"
+        />
+      </q-card-section>
+      <div class="absolute-right">
+        <div class="bg-red" style="border-radius: 100%; position: absolute; top: -8px; right: -8px;">
+          <q-btn
+            flat
+            dense
+            round
+            icon="clear"
+            aria-label="clear"
+            color="white"
+            size="md"
+            @click="PopFromCart()"
+          />
+        </div>
+      </div>
+    </q-card>
+  </q-item>
+
+  <!-- <div class="q-pa-sm" style="width:100%">
     <q-card class="bg-white" style="border-radius: 15px; height:100%">
       <img :src="image" style="object-fit: cover;" height="150px">
 
@@ -24,7 +78,7 @@
       </q-card-section>
       <h6 class="text-primary absolute-bottom q-mb-none q-mt-sm q-pb-sm text-weight-bold text-center">{{price}}$</h6>
     </q-card>
-  </div>
+  </div> -->
 </template>
 
 <script>
