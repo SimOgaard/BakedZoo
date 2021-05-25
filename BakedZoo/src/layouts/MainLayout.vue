@@ -1,11 +1,12 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-accent bg-image">
+    <q-resize-observer @resize="onResize" />
     <q-img
       src="~assets/BackgroundLeafCroppedWithAnimals.png"
       basic
-      fit="cover"
-      style="position: fixed; width: 375px; height: 765px"
-    />
+      fit="fill"
+      :style="style"
+    /> 
 
     <q-header class="bg-transparent">
       <q-toolbar class="justify-between">
@@ -199,6 +200,7 @@ export default {
   components: { EssentialLink },
   data () {
     return {
+      style: {position: 'fixed', width: '100%', height: '94%' },
       leftDrawerOpen: false,
       tab: 'home',
       essentialLinks: linksData,
@@ -293,6 +295,14 @@ export default {
         currentIndex++;
       });
       this.allCakes = newAllCakes;
+    },
+    onResize (size) {
+      console.log(size);
+      this.style= {
+        position: 'fixed', 
+        width: size.width+ 'px', 
+        height: size.height -58 +'px'
+      }
     }
   },
   mounted ()
