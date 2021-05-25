@@ -1,5 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-accent bg-image">
+    <q-resize-observer @resize="onResize" />
     <q-img
       src="~assets/BackgroundLeafCroppedWithAnimals.png"
       basic
@@ -7,7 +8,7 @@
       :style="style"
     /> 
 
-    <q-header class="bg-transparent" style="white-space: nowrap;">
+    <q-header class="bg-transparent">
       <q-toolbar class="justify-between">
         <div>
           <q-btn
@@ -116,7 +117,7 @@
             :color="colorShop"
             size="xl"
           >
-            <q-badge v-if="allCakesAmount != 0" color="orange" class="q-mt-sm" floating>{{allCakesAmount}}</q-badge>
+            <q-badge color="orange" class="q-mt-sm" floating>{{allCakesAmount}}</q-badge>
           </q-btn>
         </div>
       </div>
@@ -264,12 +265,19 @@ export default {
         currentIndex++;
       });
       this.allCakes = newAllCakes;
+    },
+    onResize (size) {
+      console.log(size);
+      this.Rezise();
+    },
+    Rezise () {
+      this.style.height=window.screen.height-50+'px';
+      this.style.width= window.screen.width +'px';
     }
   },
   mounted ()
   {
-    this.style.height=window.screen.height-50+'px';
-    this.style.width= window.screen.width +'px';
+    this.Rezise();
     axios.get('http://localhost:3000/cakes')
     .then(response => {
       this.cakesFromWeb = response.data
