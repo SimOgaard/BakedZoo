@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf" class="bg-accent bg-image">
-    <q-resize-observer @resize="onResize" />
+    <q-resize-observer @resize="ChangeButtonColors" />
     <q-img
       src="~assets/BackgroundLeafCroppedWithAnimals.png"
       basic
@@ -152,16 +152,28 @@ import axios from 'axios';
 
 const linksData = [
   {
-    title: 'Our Staff',
-    caption: 'The desguised heros of our kitchen',
-    icon: 'People',
-    link: 'https://quasar.dev'
+    title: 'Pending orders',
+    caption: 'Your orders',
+    icon: 'trending_up',
+    link: '/#/Pending'
+  },
+  {
+    title: 'About us',
+    caption: 'Learn more about us',
+    icon: 'info',
+    link: '/#/About'
   },
   {
     title: 'Settings',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/quasarframework'
+    caption: 'configure a personal look',
+    icon: 'settings',
+    link: '/#/Settings'
+  },
+  {
+    title: 'Donations',
+    caption: 'help the developers in thier cause',
+    icon: 'paid',
+    link: '/#/Donations'
   }
 ];
 
@@ -200,6 +212,9 @@ export default {
     },
     ChangeButtonColors() // EEEEEEEEW FUCK VARIABLER I QUASAR EEEEEEEEEW
     {
+      this.tab = this.$router.history.current.path.substring(1);
+      this.style.height=window.screen.height-50+'px';
+      this.style.width= window.screen.width +'px';
       if (this.tab == 'home')
       {
         this.colorHome = 'primary';
@@ -265,19 +280,10 @@ export default {
         currentIndex++;
       });
       this.allCakes = newAllCakes;
-    },
-    onResize (size) {
-      console.log(size);
-      this.Rezise();
-    },
-    Rezise () {
-      this.style.height=window.screen.height-50+'px';
-      this.style.width= window.screen.width +'px';
     }
   },
   mounted ()
   {
-    this.Rezise();
     axios.get('http://localhost:3000/cakes')
     .then(response => {
       this.cakesFromWeb = response.data
@@ -285,8 +291,6 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
-
-    this.tab = this.$router.history.current.path.substring(1);
     this.ChangeButtonColors();
   }
 }

@@ -10,7 +10,11 @@ const routes = [
       { path: 'Shop', component: () => import('pages/Shop.vue') },
       { path: 'Login', component: () => import('pages/Login.vue') },
       { path: 'CreateAccount', component: () => import('pages/CreateAccount.vue') },
-      { path: 'ManageAccount', component: () => import('pages/ManageAccount.vue') }
+      { path: 'ManageAccount', component: () => import('pages/ManageAccount.vue') },
+      { path: 'About', component: () => import('pages/About us.vue') },
+      { path: 'Settings', component: () => import('pages/Settings.vue') },
+      { path: 'Pending', component: () => import('pages/Pending.vue') },
+      { path: 'Donations', component: () => import('pages/Donations.vue') }
     ]
   },
 
