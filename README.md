@@ -6,7 +6,7 @@ länk till pending orders
 
 
 
-se och ändra konto utseende samt funktionalitet
+se och ändra konto funktionalitet
 
 place order button 
 would you like to see all pending orders?

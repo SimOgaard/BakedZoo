@@ -1,6 +1,6 @@
 <template>
   <q-item :class="$q.screen.lt.sm ? 'col-6' : ($q.screen.lt.md ? 'col-4' : 'col-3')" class="q-pa-sm" native.prevent @click.native.prevent="GoToCake()">
-    <q-card class="bg-white" style="border-radius: 15px; height:100%">
+    <q-card class="bg-white" style="border-radius: 15px; height:100%; width: 100%">
       <img :src="image" style="object-fit: cover;" height="150px">
 
       <q-card-section class="q-pt-sm q-pl-sm q-pb-sm">

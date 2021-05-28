@@ -4,17 +4,18 @@
     <h5 class="text-italic q-mt-lg q-mb-none q-pb-md text-primary text-weight-regular text-center" style="white-space: nowrap;">Your Order</h5>
 
     <!-- add to amount +1 for add, -1 for remove 1  -->
-    <q-card square class="q-pa-none shadow-0 transparent row">
-      <ShopItemCard
-        @AddToAmount="AddToAmount"
-        @PopFromCart="PopFromCart"
-        v-for="(cake, index) in cakes"
-        :key="cake.title"
-        v-bind="cake"
-        v-bind:index="index"
-      />
-    </q-card>
-
+    <div class="row justify-center">
+      <q-card square class="q-pa-none shadow-0 transparent row" style="max-width: 1200px">
+        <ShopItemCard
+          @AddToAmount="AddToAmount"
+          @PopFromCart="PopFromCart"
+          v-for="(cake, index) in cakes"
+          :key="cake.title"
+          v-bind="cake"
+          v-bind:index="index"
+        />
+      </q-card>
+    </div>
     <div class="row justify-center">
       <q-btn class="q-mt-md bg-dark q-mb-lg" style="border-radius: 12px;" size="md" @click="alert = true" no-caps v-if="cakes.length != 0">
         Place order
