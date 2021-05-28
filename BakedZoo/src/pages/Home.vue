@@ -25,6 +25,7 @@
           v-for="cake in cakesFromWeb"
           :key="cake.title"
           v-bind="cake"
+          v-bind:search="search"
         />
       </q-card>
     </div>
