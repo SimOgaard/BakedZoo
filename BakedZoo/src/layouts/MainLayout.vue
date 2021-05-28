@@ -141,7 +141,7 @@
     </q-dialog>
 
     <q-page-container>
-      <router-view @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
+      <router-view v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -194,7 +194,8 @@ export default {
       cakesFromWeb: null,
       allCakes: [],
       allCakesAmount: 0,
-      allOrders:[]
+      allOrders: [],
+      account: null
     }
   },
   methods:{
@@ -210,6 +211,10 @@ export default {
     IsLoggingIn(isLoggingIn)
     {
       this.IsLoggedIn = isLoggingIn;
+    },
+    AccountDetails(email, name, password){
+      this.account = { email : email, name : name, password : password }
+      console.log(this.account)
     },
     ChangeButtonColors() // EEEEEEEEW FUCK VARIABLER I QUASAR EEEEEEEEEW
     {

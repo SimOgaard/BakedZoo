@@ -3,6 +3,8 @@
     <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center">BakedZoo</h4>
     <h5 class="text-italic q-mt-lg q-mb-lg q-pb-xl text-primary text-weight-regular text-center">Manage Account</h5>
 
+    {{account}}
+
     <!-- ManageAccount stuff -->
     <q-card square class="q-pa-lg q-pt-none shadow-0 transparent">
       <q-card-section class="q-pt-none">
@@ -48,6 +50,7 @@
 <script>
 export default {
   name: 'ManageAccount',
+  props: ['account'],
   data () {
     return {
       email: '',
