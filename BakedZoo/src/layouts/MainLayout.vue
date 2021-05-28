@@ -141,7 +141,7 @@
     </q-dialog>
 
     <q-page-container>
-      <router-view v-bind:allOrders="allOrders" v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
+      <router-view v-bind:allOrders="allOrders" v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb" v-bind:staffFromWeb="staffFromWeb"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -192,6 +192,7 @@ export default {
       alert: false,
       selectedCake: null,
       cakesFromWeb: null,
+      staffFromWeb: null,
       allCakes: [],
       allCakesAmount: 0,
       allOrders: [],
@@ -311,7 +312,15 @@ export default {
     .catch(e => {
       this.errors.push(e)
     })
+    axios.get('http://localhost:3000/staff')
+    .then(response => {
+      this.staffFromWeb = response.data
+    })
+    .catch(e => {
+      this.errors.push(e)
+    })
     this.ChangeButtonColors();
+
   }
 }
 </script>
