@@ -131,6 +131,7 @@
       <q-card>
         <q-card-section class="row items-center">
           <span class="q-ml-sm">Are you shure you want to logout?</span>
+          <span class="q-ml-sm">Current order will not be saved</span>
         </q-card-section>
 
         <q-card-actions class="flex-center q-pt-none justify-around">
@@ -141,7 +142,7 @@
     </q-dialog>
 
     <q-page-container>
-      <router-view v-bind:allOrders="allOrders" v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
+      <router-view v-bind:IsLoggedIn="IsLoggedIn" @TryLoggingIn="TryLoggingIn" v-bind:allOrders="allOrders" v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -149,6 +150,7 @@
 <script>
 import EssentialLink from 'components/EssentialLink.vue'
 import axios from 'axios';
+import { QSpinnerFacebook } from 'quasar';
 
 const linksData = [
   {
@@ -208,13 +210,75 @@ export default {
         this.ChangeButtonColors();
       }
     },
+    TryLoggingIn(account){
+      axios.get('http://localhost:3000/customers')
+      .then(response => {
+        var customers = response.data
+
+        customers.forEach(customer => {
+          if (customer.email == account.email && customer.password == account.password){
+            this.account = { id: customer.id, name : customer.name, email : customer.email, password : customer.password, timestamp: customer.timestamp, avatar: '' }
+            this.IsLoggingIn(true)
+          }
+        });
+      })
+      .catch(e => {
+        console.log(e)
+      })
+    },
     IsLoggingIn(isLoggingIn)
     {
       this.IsLoggedIn = isLoggingIn;
+      if (isLoggingIn){
+        axios.get('http://localhost:3000/orders')
+        .then(response => {
+          response.data.forEach(order => {
+            if (order.customerId == this.account.id){
+              this.allOrders.push(order.cakes);
+            }
+          });
+        })
+        .catch(e => {
+          console.log(e)
+        })
+      }
+      else
+      {
+        this.selectedCake = null
+        this.allCakes = []
+        this.allCakesAmount = 0
+        this.allOrders = []
+        this.account = null
+      }
+      this.Route('home')
     },
     AccountDetails(email, name, password){
-      this.account = { email : email, name : name, password : password }
-      console.log(this.account)
+      axios.get('http://localhost:3000/customers')
+      .then(response => {
+        var customers = response.data
+
+        var isNew = true
+        customers.forEach(customer => {
+          if (customer.email == email){
+            isNew = false
+          }
+        });
+
+        if (isNew){
+          axios.post('http://localhost:3000/customers', { id: customers.length+1, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' })
+          .then(response => {
+            customers = response.data
+            this.account = { id: customers.length+1, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' }
+            this.IsLoggingIn(isNew)
+          })
+          .catch(e => {
+            console.log(e)
+          })
+        }
+      })
+      .catch(e => {
+        console.log(e)
+      })
     },
     ChangeButtonColors() // EEEEEEEEW FUCK VARIABLER I QUASAR EEEEEEEEEW
     {
@@ -289,9 +353,23 @@ export default {
     },
     PlaceOrder()
     {
-      this.allOrders.push(this.allCakes);
-      this.allCakes = [];
-      this.allCakesAmount = 0;
+      axios.get('http://localhost:3000/orders')
+      .then(response => {
+        var orders = response.data
+
+        axios.post('http://localhost:3000/orders', { id: orders.length+1, customerId: this.account.id, cakes : this.allCakes })
+        .then(response => {
+          this.allOrders.push(this.allCakes);
+          this.allCakes = [];
+          this.allCakesAmount = 0;
+        })
+        .catch(e => {
+          console.log(e)
+        })
+      })
+      .catch(e => {
+        console.log(e)
+      })
     },
     onResize (size) {
       console.log(size);
@@ -309,7 +387,7 @@ export default {
       this.cakesFromWeb = response.data
     })
     .catch(e => {
-      this.errors.push(e)
+      console.log(e)
     })
     this.ChangeButtonColors();
   }

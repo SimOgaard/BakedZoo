@@ -26,7 +26,13 @@
     </div>
 
     <q-dialog v-model="alert">
-      <q-card class="q-pa-sm">
+      <q-card v-if="!IsLoggedIn">
+        you need to logg in first to place order
+        
+        loggin
+      </q-card>
+
+      <q-card v-else class="q-pa-sm">
         <q-card-section class="text-primary text-weight-bolder row q-pb-none">
           <span class="q-ml-none">You are about to place this order:</span>
         </q-card-section>
@@ -72,7 +78,7 @@ import ListItems from 'components/ListItems.vue'
 
 export default {
   name: 'Shop',
-  props: ['cakes'],
+  props: ['cakes', "IsLoggedIn"],
   components: { ShopItemCard, ListItems },
   data () {
     return {

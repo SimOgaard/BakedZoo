@@ -50,8 +50,7 @@ export default {
     {
       if (this.email != '' && this.password != '')
       {
-        this.$emit('IsLoggingIn', true)
-        this.$emit('Route', 'home')
+        this.$emit('TryLoggingIn', {email:this.email, password:this.password})
       }
     }
   }

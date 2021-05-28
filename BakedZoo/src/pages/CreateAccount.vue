@@ -62,8 +62,6 @@ export default {
       if (this.email != '' && this.name != '' && this.password != '' && this.password == this.passwordConfirm)
       {
         this.$emit('AccountDetails', this.email, this.name, this.password)
-        this.$emit('IsLoggingIn', true)
-        this.$emit('Route', 'home')
       }
     }
   }
