@@ -266,10 +266,10 @@ export default {
         });
 
         if (isNew){
-          axios.post('http://localhost:3000/customers', { id: customers.length+1, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' })
+          axios.post('http://localhost:3000/customers', { id: customers.length, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' })
           .then(response => {
             customers = response.data
-            this.account = { id: customers.length+1, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' }
+            this.account = { id: customers.length, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' }
             this.IsLoggingIn(isNew)
           })
           .catch(e => {
@@ -358,7 +358,7 @@ export default {
       .then(response => {
         var orders = response.data
 
-        axios.post('http://localhost:3000/orders', { id: orders.length+1, customerId: this.account.id, cakes : this.allCakes })
+        axios.post('http://localhost:3000/orders', { id: orders.length, customerId: this.account.id, cakes : this.allCakes })
         .then(response => {
           this.allOrders.push(this.allCakes);
           this.allCakes = [];
