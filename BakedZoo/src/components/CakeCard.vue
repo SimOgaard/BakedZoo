@@ -19,6 +19,7 @@
             aria-label="add_shopping_cart"
             color="white"
             size="lg"
+            :ripple="{ center: true }"
             @click.capture.stop="AddToCart()"
           />
         </div>
@@ -90,8 +91,6 @@ export default {
       }
       this.$emit('SelectedCake', Cake)
       this.$emit('AddToCart')
-      // this.$emit('SelectedCake', Cake)
-      // this.$emit('Route', 'CakeInfo')
     }
   }
 }

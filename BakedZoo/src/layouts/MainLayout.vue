@@ -289,15 +289,9 @@ export default {
     },
     PlaceOrder()
     {
-      console.log("1");
       this.allOrders.push(this.allCakes);
-      console.log("2");
       this.allCakes = [];
-      console.log("3");
       this.allCakesAmount = 0;
-      console.log("4");
-      console.log(this.allCakes)
-      console.log(this.allOrders)
     },
     onResize (size) {
       console.log(size);
