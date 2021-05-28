@@ -20,6 +20,16 @@
         </div>
       </div>
     </div>
+
+    <div class="row justify-center">
+      <h6 class="fixed-center q-mt-none text-weight-regular text-primary" style="white-space: nowrap;" v-if="allOrders.length==0 && !IsLoggedIn">
+        Sign in to se your pending orders
+      </h6>
+      <h6 class="fixed-center q-mt-none text-weight-regular text-primary" style="white-space: nowrap;" v-else-if="allOrders.length==0">
+        You have no pending orders
+      </h6>
+    </div>
+
   </q-page>
 </template>
 
@@ -28,7 +38,7 @@ import ListItems from 'components/ListItems.vue'
 
 export default {
   name: 'Pending',
-  props: ['allOrders'],
+  props: ['allOrders', 'IsLoggedIn'],
   components: { ListItems },
   data () {
     return {
