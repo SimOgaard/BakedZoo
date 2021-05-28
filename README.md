@@ -11,3 +11,7 @@ se och ändra konto funktionalitet
 place order button 
 would you like to see all pending orders?
 Yes, No
+
+
+
+ignen animation på add to cart button

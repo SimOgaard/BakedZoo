@@ -17,7 +17,7 @@
     </div>
 
     <div class="row justify-center">
-      <q-card square class="col q-pa-none shadow-0 transparent row" style="max-width: 1200px">
+      <q-card square class="col q-pa-none shadow-0 transparent row" style="max-width: 1200px; width:100%">
         <CakeCard
           @Route="Route"
           @SelectedCake="SelectedCake"

@@ -5,7 +5,7 @@
 
     <!-- add to amount +1 for add, -1 for remove 1  -->
     <div class="row justify-center">
-      <q-card square class="q-pa-none shadow-0 transparent row" style="max-width: 1200px">
+      <q-card square class="q-pa-none shadow-0 transparent row " style="max-width: 1200px; width:100%">
         <ShopItemCard
           @AddToAmount="AddToAmount"
           @PopFromCart="PopFromCart"
@@ -39,12 +39,26 @@
 
         <q-card-section class="row q-pt-none">
           <span class="col text-primary text-weight-bolder q-ml-sm ">Total:</span>
-          <span class="col text-primary text-weight-medium q-ml-sm">{{costSum}}$</span>
+          <span class="col text-primary text-weight-medium q-ml-sm q-mb-none q-pb-none q-mt-none q-pt-none">{{costSum}}$</span>
+        </q-card-section>
+
+        <q-card-actions class="flex-center q-pt-none q-mt-none justify-around">
+          <q-btn flat label="Yes, place order" class="bg-primary" color="white" v-close-popup @click="PlaceOrder()"></q-btn>
+          <q-btn flat label="Cancel" color="red" v-close-popup></q-btn>
+        </q-card-actions>
+      </q-card>
+    </q-dialog>
+
+    <q-dialog v-model="alert2">
+      <q-card>
+        <q-card-section class="row q-pb-sm">
+          <span class="q-ml-none text-primary text-weight-bolder">Order has been placed!</span>
+          <span class="q-ml-none">Would you like to see all pending orders?</span>
         </q-card-section>
 
         <q-card-actions class="flex-center q-pt-none justify-around">
-          <q-btn flat label="Yes, place order" class="bg-primary" color="white" v-close-popup @click="PlaceOrder()"></q-btn>
-          <q-btn flat label="Cancel" color="red" v-close-popup></q-btn>
+          <q-btn flat label="Yes" class="bg-primary" color="white" v-close-popup @click="SeeAllPendingOrders()"></q-btn>
+          <q-btn flat label="No" color="red" v-close-popup></q-btn>
         </q-card-actions>
       </q-card>
     </q-dialog>
@@ -62,7 +76,8 @@ export default {
   components: { ShopItemCard, ListItems },
   data () {
     return {
-      alert: false
+      alert: false,
+      alert2: false
     }
   },
   computed: {
@@ -85,7 +100,13 @@ export default {
     },
     PlaceOrder()
     {
+      this.alert = false; 
+      this.alert2 = true; 
       this.$emit('PlaceOrder')
+    },
+    SeeAllPendingOrders()
+    {
+      this.$emit('Route', 'pending')
     }
   }
 }

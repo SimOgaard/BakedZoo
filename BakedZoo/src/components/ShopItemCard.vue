@@ -1,5 +1,5 @@
 <template>
-  <q-item :class="$q.screen.lt.sm ? 'col-6' : ($q.screen.lt.md ? 'col-4' : 'col-3')" class="q-pa-sm">
+  <q-item :class="$q.screen.lt.sm ? 'col-6' : ($q.screen.lt.md ? 'col-4' : 'col-3')" class="q-pa-sm self-stretch">
     <q-card class="bg-white" style="border-radius: 15px; height:100%; width: 100%">
       <img :src="image" style="object-fit: cover;" height="150px">
 

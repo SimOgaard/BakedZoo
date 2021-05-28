@@ -141,7 +141,7 @@
     </q-dialog>
 
     <q-page-container>
-      <router-view v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
+      <router-view v-bind:allOrders="allOrders" v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -244,27 +244,27 @@ export default {
     AddToCart()
     {
       this.allCakesAmount++;
-      var isInList = false;
+      var isInList = 0;
 
       this.allCakes.forEach(element => {
-        isInList = element.id == this.selectedCake.id && !isInList;
-        if (isInList){
+        isInList += element.title == this.selectedCake.title;
+
+        if (element.title == this.selectedCake.title){
           element.amountInShoppingCart++;
         }
       });
 
-      var selectedCakeWithAmountInShoppingCart = {
-        id: this.selectedCake.id,
-        title: this.selectedCake.title,
-        previewDescription: this.selectedCake.previewDescription,
-        detailDescription: this.selectedCake.detailDescription,
-        image: this.selectedCake.image,
-        price: this.selectedCake.price,
-        amountInShoppingCart: 1
-      };
-
-      if (!isInList)
+      if (isInList == 0)
       {
+        var selectedCakeWithAmountInShoppingCart = {
+          id: this.selectedCake.id,
+          title: this.selectedCake.title,
+          previewDescription: this.selectedCake.previewDescription,
+          detailDescription: this.selectedCake.detailDescription,
+          image: this.selectedCake.image,
+          price: this.selectedCake.price,
+          amountInShoppingCart: 1
+        };
         this.allCakes.push(selectedCakeWithAmountInShoppingCart);
       }
     },
@@ -289,9 +289,15 @@ export default {
     },
     PlaceOrder()
     {
+      console.log("1");
       this.allOrders.push(this.allCakes);
+      console.log("2");
       this.allCakes = [];
+      console.log("3");
       this.allCakesAmount = 0;
+      console.log("4");
+      console.log(this.allCakes)
+      console.log(this.allOrders)
     },
     onResize (size) {
       console.log(size);
