@@ -27,9 +27,16 @@
 
     <q-dialog v-model="alert">
       <q-card v-if="!IsLoggedIn">
-        you need to logg in first to place order
-        
-        loggin
+
+        <q-card-section class="col">
+          <span class="row text-red text-weight-bold q-ml-sm ">You are required to sign in to place an order.</span>
+          <span class="row text-primary text-weight-medium q-ml-sm q-mb-none q-pb-none q-pt-sm">Would you like to sign in?</span>
+        </q-card-section>
+
+        <q-card-actions class="flex-center q-pt-none q-mt-none justify-around">
+          <q-btn flat label="Yes, sign me in" class="bg-primary" color="white" v-close-popup @click="Route('Login')"></q-btn>
+          <q-btn flat label="No" color="red" v-close-popup></q-btn>
+        </q-card-actions>
       </q-card>
 
       <q-card v-else class="q-pa-sm">
@@ -96,6 +103,10 @@ export default {
     }
   },
   methods:{
+    Route(newTab)
+    {
+      this.$emit('Route', newTab)      
+    },
     AddToAmount(amount, index)
     {
       this.$emit('AddToAmount', amount, index)
