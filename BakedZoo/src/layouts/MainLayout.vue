@@ -310,19 +310,19 @@ export default {
       this.tab = this.$router.history.current.path.substring(1);
       this.style.height=window.screen.height-50+'px';
       this.style.width= window.screen.width +'px';
-      if (this.tab == 'home')
+      if (this.tab == 'home' || this.tab == 'Home')
       {
         this.colorHome = 'primary';
         this.colorShop = 'grey-7';
         this.colorPending = 'grey-7';
       }
-      else if (this.tab == 'shop')
+      else if (this.tab == 'shop' || this.tab == 'Shop')
       {
         this.colorHome = 'grey-7';
         this.colorShop = 'primary';
         this.colorPending = 'grey-7';
       }
-      else if (this.tab == 'pending')
+      else if (this.tab == 'pending' || this.tab == 'Pending')
       {
         this.colorHome = 'grey-7';
         this.colorShop = 'grey-7';
