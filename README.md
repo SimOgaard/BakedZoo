@@ -13,7 +13,9 @@ ignen animation på add to cart button
 
 Som primärfärg för appen valdes en mörkare grön. Detta eftersom denna färg ofta förknippas med natur och kunden kommer med stor sannolikhet vara ute efter att upptäcka naturen och djur däri med tanke på att de befinner sig på en djurpark/ett zoo. Färgen förknippas även med lugn vilket även är den känska som en fikapaus ska framkalla. För bakgrunden användes en beigeaktig färg, detta för att kombinera egenskaperna från vit och brun. Vit färg ger mycket run åt övriga färger och låter den starka gröna naturfärgen ta fokus medan den bruna färgen förknippas med naturens jord, träd och stenar. Färgen på alla sidans knappar har även betydelse. "Enter"-knappen på de sidorna som förknippas med kontohantering har fått en av bakgrundens komplementfärger för att inte ta för mycket fokus så fort sidan öppnas men även se estetiskt tillfredsställande ut. Ikonen för knappen som lägger till varor i kundvagnen är orange för att avsiktligt dra kundens uppmärksamhet till den. Detta därför att vi vill att kunden ska köpa vår produkt då det kommer vara vårm inkomstkälla. Initiellt var tanken även att inloggningsikonerna skulle ha en lila färg för att komplementera det gröna lövet bakoms färg men färgen på ikonerna togs bort eftersom den simplistiska designen passade bättre med menyknappen i vänstra hörnet.
 
-### Position
+### Position och storlek
+
+Positionen på skärmens olika objekt baserades på ett rutnät på 200 pixlar. Den översta delen av rutnätet används till titeltexten samt sidbeskrivningen eller sökrutan på "home"-sidan. Därefter delades det resterande utrymmet på sidan upp till de olika elementen. För att lätt kunna passa in element i detta rutnät visas alla objekt som kort. Detta gör även det lättare för användarent att separera de olika objekten från varandra. Exempelvis så tar korten på "home" sidan upp två 400 pixlar, alltså två rutor i rutnätet, halvla rutan ockuperas av rutans bild och andra halvan inkluderar namnet beskrivningen och priset. I "about us" sidan var det även meningen att varje kort skulle ta upp en halv ruta var men denna design tog sin itne in i den slutliga produkten.
 
 ### Komposition
 
