@@ -1,7 +1,7 @@
 <template>
   <div>
     <q-page class="flex-center q-pb-lg" style="padding-left: 21px; padding-right: 21px;">
-      <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center">BakedZoo</h4>
+      <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center" @click="Route('Home')">BakedZoo</h4>
       <h5 class="text-italic q-mt-lg q-mb-sm q-pb-none text-primary text-weight-regular text-center" style="white-space: nowrap;">{{cake.title}}</h5>
 
       <div class="row justify-center">
@@ -40,6 +40,10 @@ export default {
     AddToCart()
     {
       this.$emit('AddToCart')
+    },
+    Route(newTab)
+    {
+      this.$emit('Route', newTab)      
     }
   }
 }

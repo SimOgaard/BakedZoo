@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex-center">
-    <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center">BakedZoo</h4>
+    <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center" @click="Route('Home')">BakedZoo</h4>
     <h5 class="text-italic q-mt-lg q-mb-lg q-pb-xl text-primary text-weight-regular text-center">Create Account</h5>
 
     <!-- CreateAccount stuff -->
@@ -63,6 +63,10 @@ export default {
       {
         this.$emit('AccountDetails', this.email, this.name, this.password)
       }
+    },
+    Route(newTab)
+    {
+      this.$emit('Route', newTab)      
     }
   }
 }

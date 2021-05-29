@@ -177,9 +177,30 @@
     }
   ],
   "customers": [
-    
+    {
+      "id": 1,
+      "name": "1",
+      "email": "1",
+      "password": "1",
+      "timestamp": 1622300836307,
+      "avatar": ""
+    }
   ],
   "orders": [
-
+    {
+      "id": 1,
+      "customerId": 1,
+      "cakes": [
+        {
+          "id": 3,
+          "title": "Carrot cake",
+          "previewDescription": "Bugs bunnys favourite",
+          "detailDescription": "Carrot cake closely resembles a quick bread in method of preparation (all the wet ingredients, such as the eggs and sugar, are mixed, all the dry ingredients are mixed, and the wet are then added to the dry) and final consistency (which is usually denser than a traditional cake and has a coarser crumb). Many carrot cake recipes include optional ingredients, such as kirsch, cinnamon, nuts, pineapple or raisins. The most common icing on carrot cake is icing sugar and lemon juice or icing sugar and kirsch (Europe) and an icing with icing sugar, butter and cream cheese (United States). As the cake is relatively moist, it can be conserved longer than many other types of cakes.",
+          "image": "https://raw.githubusercontent.com/filippella/Dagger-Rx-Database-MVP/master/cakes/carrot_cake.jpg",
+          "price": 5,
+          "amountInShoppingCart": 1
+        }
+      ]
+    }
   ]
 }

@@ -9,19 +9,9 @@ ignen animation på add to cart button
 
 
 ## Testing
-Hem om man trycker på baked zoo
-
 Ingen respons på knapparna 
 
 Dålig ikon för login
-
-Logout confirm not görn
-
-Enter är för nära create account
-
-Logga ut clearas din current order
-
-Logga in clearas din current order
 
 Kanske för små knappar där nere
 

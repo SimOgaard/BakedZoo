@@ -33,7 +33,7 @@
           <span class="row text-primary text-weight-medium q-ml-sm q-mb-none q-pb-none q-pt-sm">Would you like to sign in?</span>
         </q-card-section>
 
-        <q-card-actions class="flex-center q-pt-none q-mt-none justify-around">
+        <q-card-actions class="flex-center q-mb-sm q-pt-none q-mt-none justify-around">
           <q-btn flat label="Yes, sign me in" class="bg-primary" color="white" v-close-popup @click="Route('Login')"></q-btn>
           <q-btn flat label="No" color="red" v-close-popup></q-btn>
         </q-card-actions>
@@ -55,7 +55,7 @@
           <span class="col text-primary text-weight-medium q-ml-sm q-mb-none q-pb-none q-mt-none q-pt-none">{{costSum}}$</span>
         </q-card-section>
 
-        <q-card-actions class="flex-center q-pt-none q-mt-none justify-around">
+        <q-card-actions class="flex-center q-mb-sm q-pt-none q-mt-none justify-around">
           <q-btn flat label="Yes, place order" class="bg-primary" color="white" v-close-popup @click="PlaceOrder()"></q-btn>
           <q-btn flat label="Cancel" color="red" v-close-popup></q-btn>
         </q-card-actions>
@@ -69,7 +69,7 @@
           <span class="q-ml-none">Would you like to see all pending orders?</span>
         </q-card-section>
 
-        <q-card-actions class="flex-center q-pt-none justify-around">
+        <q-card-actions class="flex-center q-mb-sm q-pt-none justify-around">
           <q-btn flat label="Yes" class="bg-primary" color="white" v-close-popup @click="SeeAllPendingOrders()"></q-btn>
           <q-btn flat label="No" color="red" v-close-popup></q-btn>
         </q-card-actions>

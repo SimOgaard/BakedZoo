@@ -12,7 +12,6 @@ const routes = [
       { path: 'CreateAccount', component: () => import('pages/CreateAccount.vue') },
       { path: 'ManageAccount', component: () => import('pages/ManageAccount.vue') },
       { path: 'About', component: () => import('pages/AboutUs.vue') },
-      { path: 'Settings', component: () => import('pages/Settings.vue') },
       { path: 'Pending', component: () => import('pages/Pending.vue') },
       { path: 'Donations', component: () => import('pages/Donations.vue') }
     ]

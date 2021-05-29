@@ -129,11 +129,11 @@
     <q-dialog v-model="alert">
       <q-card>
         <q-card-section class="row items-center">
-          <span class="q-ml-sm">Are you shure you want to logout?</span>
-          <span class="q-ml-sm">Current order will not be saved</span>
+          <span class="q-ml-sm text-primary text-weight-bold">Are you shure you want to logout?</span>
+          <span class="q-ml-sm text-italic text-caption text-weight-light">Current order will not be saved</span>
         </q-card-section>
 
-        <q-card-actions class="flex-center q-pt-none justify-around">
+        <q-card-actions class="flex-center q-mb-sm q-pt-none justify-around">
           <q-btn flat label="Yes, log out" class="bg-primary" color="white" v-close-popup @click="IsLoggingIn(false)"></q-btn>
           <q-btn flat label="Cancel" color="red" v-close-popup></q-btn>
         </q-card-actions>
@@ -163,12 +163,6 @@ const linksData = [
     caption: 'Learn more about us',
     icon: 'info',
     link: '/#/About'
-  },
-  {
-    title: 'Settings',
-    caption: 'configure a personal look',
-    icon: 'settings',
-    link: '/#/Settings'
   },
   {
     title: 'Donations',
@@ -245,8 +239,6 @@ export default {
       else
       {
         this.selectedCake = null
-        this.allCakes = []
-        this.allCakesAmount = 0
         this.allOrders = []
         this.account = null
       }
@@ -265,10 +257,10 @@ export default {
         });
 
         if (isNew){
-          axios.post('http://localhost:3000/customers', { id: customers.length, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' })
+          axios.post('http://localhost:3000/customers', { id: customers.length + 1, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' })
           .then(response => {
             customers = response.data
-            this.account = { id: customers.length, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' }
+            this.account = { id: customers.length + 1, name : name, email : email, password : password, timestamp: Date.now(), avatar: '' }
             this.IsLoggingIn(isNew)
           })
           .catch(e => {
@@ -356,8 +348,7 @@ export default {
       axios.get('http://localhost:3000/orders')
       .then(response => {
         var orders = response.data
-
-        axios.post('http://localhost:3000/orders', { id: orders.length, customerId: this.account.id, cakes : this.allCakes })
+        axios.post('http://localhost:3000/orders', { id: orders.length + 1, customerId: this.account.id, cakes : this.allCakes })
         .then(response => {
           this.allOrders.push(this.allCakes);
           this.allCakes = [];

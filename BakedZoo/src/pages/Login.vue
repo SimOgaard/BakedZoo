@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex-center">
-    <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center">BakedZoo</h4>
+    <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center" @click="Route('Home')">BakedZoo</h4>
     <h5 class="text-italic q-mt-lg q-mb-xl q-pb-xl text-primary text-weight-regular text-center">Login</h5>
 
     <!-- Login stuff -->
@@ -25,7 +25,7 @@
           <q-space></q-space>
           <q-btn padding="none" unelevated style="border-radius: 12px; font-size: 1.15rem;" class="q-pr-xl q-pl-xl text-weight-bold bg-dark" no-caps label="Enter" @click="Login()"/>
         </q-card-actions>
-        <q-card-section class="text-center q-pa-none">
+        <q-card-section class="text-center q-pa-none q-pt-md">
           <q-btn padding="sm" unelevated no-caps class="text-italic text-h5 text-secondary bg-transparent" @click="$emit('Route', 'createAccount')">Create new account</q-btn>
         </q-card-section>
       </q-card>
@@ -52,6 +52,10 @@ export default {
       {
         this.$emit('TryLoggingIn', {email:this.email, password:this.password})
       }
+    },
+    Route(newTab)
+    {
+      this.$emit('Route', newTab)      
     }
   }
 }
