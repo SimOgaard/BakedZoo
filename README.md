@@ -9,9 +9,11 @@ ignen animation på add to cart button
 
 ## Designval
 
-### Färger
+### Färg
 
-### Positionering
+### Position
+
+### Komposition
 
 
 ## Testing
