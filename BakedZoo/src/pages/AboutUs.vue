@@ -4,15 +4,15 @@
       <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center" @click="Route('Home')">BakedZoo</h4>
       <h5 class="text-italic q-mt-lg q-mb-sm q-pb-none text-primary text-weight-regular text-center" style="white-space: nowrap;">About Us</h5>
 
-    <div class="row justify-center">
-      <q-card square class="col q-pa-none shadow-0 transparent" style="width: 90%">
+      <div class="row justify-center">
+        <q-card square class="col q-pa-none shadow-0 transparent" style="max-width: 600px">
           <EmployeeCard
             v-for="staff in staffFromWeb"
             :key="staff.title"
             v-bind="staff"
           />
-      </q-card>
-    </div>
+        </q-card>
+      </div>
     </q-page>
   </div>
 </template>

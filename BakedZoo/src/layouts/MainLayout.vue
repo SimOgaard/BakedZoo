@@ -87,7 +87,7 @@
       </q-list>
     </q-drawer>
 
-    <q-footer class="row justify-around bg-white">
+    <q-footer class="row justify-around bg-white q-pt-xs q-pb-xs shadow-up-1">
       <div class="col" @click="Route('home')">
         <div class="row justify-center">
           <q-btn
@@ -120,6 +120,21 @@
           </q-btn>
         </div>
       </div>
+      <div class="col" @click="Route('pending')">
+        <div class="row justify-center">
+          <q-btn
+            :ripple="false"
+            v-model="tab"
+            name="pending_actions"
+            flat
+            dense
+            icon="pending_actions"
+            aria-label="pending_actions"
+            :color="colorPending"
+            size="xl"
+          />
+        </div>
+      </div>
       <!-- <q-tabs v-model="tab" indicator-color="transparent" active-color="primary" class="text-grey-7">
         <q-route-tab name="home" icon="home" @click="Route('home')"></q-route-tab>
         <q-route-tab name="shop" icon="shopping_bag" @click="Route('shop')"></q-route-tab>
@@ -141,7 +156,7 @@
     </q-dialog>
 
     <q-page-container>
-      <router-view v-bind:IsLoggedIn="IsLoggedIn" @TryLoggingIn="TryLoggingIn" v-bind:allOrders="allOrders" v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb" v-bind:staffFromWeb="staffFromWeb"/>
+      <router-view @Redirect="Redirect" v-bind:IsLoggedIn="IsLoggedIn" @TryLoggingIn="TryLoggingIn" v-bind:allOrders="allOrders" v-bind:account="account" @AccountDetails="AccountDetails(...arguments)" @Route="Route" @IsLoggingIn="IsLoggingIn" @SelectedCake="SelectedCake" @AddToCart="AddToCart" @AddToAmount="AddToAmount(...arguments)" @PopFromCart="PopFromCart" @PlaceOrder="PlaceOrder" v-bind:cake="selectedCake" v-bind:cakes="allCakes" v-bind:cakesFromWeb="cakesFromWeb" v-bind:staffFromWeb="staffFromWeb"/>
     </q-page-container>
   </q-layout>
 </template>
@@ -184,6 +199,7 @@ export default {
       IsLoggedIn: false,
       colorHome: 'grey-7',
       colorShop: 'grey-7',
+      colorPending: 'grey-7',
       alert: false,
       selectedCake: null,
       cakesFromWeb: null,
@@ -191,17 +207,34 @@ export default {
       allCakes: [],
       allCakesAmount: 0,
       allOrders: [],
-      account: null
+      account: null,
+      redirect: false
     }
   },
   methods:{
+    Redirect()
+    {
+      this.Route('Login')
+      this.redirect = true
+    },
     Route(newTab)
     {
       if (newTab != this.tab)
       {
-        this.$router.push(newTab);
-        this.tab = newTab;
-        this.ChangeButtonColors();
+        if(this.redirect && this.tab == 'Login' && this.IsLoggedIn)
+        {
+          this.$router.push('Shop');
+          this.tab = 'Shop';
+          this.ChangeButtonColors();
+          this.redirect = false;
+        }
+        else
+        {
+          this.redirect = false;
+          this.$router.push(newTab);
+          this.tab = newTab;
+          this.ChangeButtonColors();
+        }
       }
     },
     TryLoggingIn(account){
@@ -281,16 +314,25 @@ export default {
       {
         this.colorHome = 'primary';
         this.colorShop = 'grey-7';
+        this.colorPending = 'grey-7';
       }
       else if (this.tab == 'shop')
       {
         this.colorHome = 'grey-7';
         this.colorShop = 'primary';
+        this.colorPending = 'grey-7';
+      }
+      else if (this.tab == 'pending')
+      {
+        this.colorHome = 'grey-7';
+        this.colorShop = 'grey-7';
+        this.colorPending = 'primary';
       }
       else
       {
         this.colorHome = 'grey-7';
         this.colorShop = 'grey-7';
+        this.colorPending = 'grey-7';
       }
     },
     SelectedCake(Cake)

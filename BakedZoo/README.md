@@ -1,22 +1,14 @@
-# BakedZoo (bakedzoo)
+TODO:
+Respons with erros if you input wrong in email password etc fields
 
-A Quasar Framework app
+se och ändra konto funktionalitet
 
-## Install the dependencies
-```bash
-npm install
-```
+ignen animation på add to cart button
 
-### Start the app in development mode (hot-code reloading, error reporting, etc.)
-```bash
-quasar dev
-```
+## Testing
+Ingen respons på knapparna 
+Dålig ikon för login
+Fixa bild när place order trycks
 
-
-### Build the app for production
-```bash
-quasar build
-```
-
-### Customize the configuration
-See [Configuring quasar.conf.js](https://v1.quasar.dev/quasar-cli/quasar-conf-js).
+Liten text
+Kanske för små knappar där nere

@@ -34,7 +34,7 @@
         </q-card-section>
 
         <q-card-actions class="flex-center q-mb-sm q-pt-none q-mt-none justify-around">
-          <q-btn flat label="Yes, sign me in" class="bg-primary" color="white" v-close-popup @click="Route('Login')"></q-btn>
+          <q-btn flat label="Yes, sign me in" class="bg-primary" color="white" v-close-popup @click="RedirectAndLogin()"></q-btn>
           <q-btn flat label="No" color="red" v-close-popup></q-btn>
         </q-card-actions>
       </q-card>
@@ -103,6 +103,10 @@ export default {
     }
   },
   methods:{
+    RedirectAndLogin()
+    {
+      this.$emit('Redirect')
+    },
     Route(newTab)
     {
       this.$emit('Route', newTab)      
