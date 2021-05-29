@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex-center">
-    <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center">BakedZoo</h4>
+    <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center" @click="Route('Home')">BakedZoo</h4>
     <h5 class="text-italic q-mt-lg q-mb-none q-pb-md text-primary text-weight-regular text-center" style="white-space: nowrap;">Your Order</h5>
 
     <!-- add to amount +1 for add, -1 for remove 1  -->
