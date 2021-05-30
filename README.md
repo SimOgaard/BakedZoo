@@ -23,7 +23,13 @@ Positionen på skärmens olika objekt baserades på ett rutnät på 200 pixlar. 
 
 ### Komposition
 
+För att försöka få en så balanserad komposition som möjligt har vissa element i designprocessen förskjutits åt sidan. Exempel på detta är korten på de beställningrelaterade sidorna. För att göra plats åt rullningslisten åt höger var planen att de övriga korten skulle förskjutas åt vänster. Detta hände däremot endast i teori.
+Andra områden där kompositionen har tänkts mycket på är enterknappen på de kontorelaterade sidorna som placerades på högersidan för att balansera ut den vänsterrtunga texten i inmatningsområdena.
+Även i "pending orders"-sidan var det tänkt teoretiskt att det totala priser skulle visas på högra sidan av kortet medan allt annat visades till höger för att balansera. Däremot så kom inte heller denna förändring med i slutprodukten. 
+
 ### Bakgrundsbild
+
+Med bakgrundsbilden ville vi framhäva naturkänslan som vi ville ha som tema. Därför använde vi oss av en mängd relativt diskreta lös som inte tar allt för mycket uppmärksamhet. Detta visade sig däremot inte spegla djur-aspekten av en djurpark. Först användes en bild av en apa i högra hörnet. Denna visade sig därmot med sin skärande färg ta för mycket uppmärksamhet så fort sidan öppnades. Därför byttes den ut mot två silhouetter av djur i den slutliga produkten.
 
 
 ## Testing
