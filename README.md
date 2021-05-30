@@ -1,10 +1,14 @@
 # BakedZoo
 
-## Designval
-
-### Användarupplevelse
+## Användarupplevelse
 
 Appen har designats för att vara enkel att använda med mobilen fastän designen är responsiv och kan användas på surfplatta eller dator. Vi tillgodosåg mobila användare genom att lägga möjliga tabs längst ner och härma traditionella sätt att visa information via kort vyer. Genom att göra detta lyckades vi presentera informationen på ett tydligt och bekant sätt samt att undvika förvirring när man ska navigera hemsidan. Sedan låg vi fokus på att undvika onödigt många steg och knapptryck. Exempel på hur vi gjorde detta är när du tex lägger en order utan att vara inloggad, det som händer är att du blir frågad att logga in och när du gjort det tar den dig tillbaka till din order istället för hemskärmen.
+
+### Vykort
+
+Appens alla bakverk, medarbetare och gammla beställningar presenteras av varsin ruta. Alla dessa kort är skapta för att vara skiljbara, lätt lästa och lätta att trycka på. För bakverken kan man enkelt lägga till flera bakelser på hemsidan med "Add to cart" knappen som ligger på alla vykort. Om man vill ha mer information om bakelsen kan man trycka på hela kortet.
+
+## Designval
 
 ### Färg
 
