@@ -4,12 +4,12 @@
       <img :src="image" style="object-fit: cover;" height="150px">
 
       <q-card-section class="q-pt-sm q-pl-sm q-pb-sm">
-        <p class="text-primary text-weight-bold q-mb-none">{{title}}</p>
-        <p class="q-mb-none text-italic text-caption text-weight-light">{{previewDescription}}</p>
-        <h6 class="text-white q-mb-none q-mt-none q-pl-sm q-pb-sm text-weight-bold text-center">{{price}}$</h6>
+        <p class="text-primary text-weight-bold q-mb-none" style="font-size: 20px;">{{title}}</p>
+        <p class="q-mb-none text-italic text-caption text-weight-regular" style="font-size: 16px;">{{previewDescription}}</p>
+        <h6 class="text-white q-mb-none q-mt-none q-pl-sm q-pb-sm text-weight-bold text-center" style="font-size: 24px;">{{price}}$</h6>
       </q-card-section>
-      <h6 class="text-primary absolute-bottom q-mb-none q-mt-sm q-pb-sm text-weight-bold text-center">{{price}}$</h6>
-      <div class="absolute-right">
+      <h6 class="text-primary absolute-bottom q-mb-none q-mt-sm q-pb-sm text-weight-bold text-center" style="font-size: 24px;">{{price}}$</h6>
+      <!-- <div class="absolute-right">
         <div class="bg-orange" style="border-radius: 100%; position: absolute; top: -8px; right: -8px;">
           <q-btn
             flat
@@ -18,12 +18,12 @@
             icon="add_shopping_cart"
             aria-label="add_shopping_cart"
             color="white"
-            size="lg"
+            size="xl"
             :ripple="{ center: true }"
             @click.capture.stop="AddToCart()"
           />
         </div>
-      </div>
+      </div> -->
     </q-card>
   </q-item>
 </template>

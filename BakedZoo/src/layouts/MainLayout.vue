@@ -18,7 +18,7 @@
             icon="menu"
             aria-label="Menu"
             color="black"
-            size="lg"
+            size="26px"
             @click="leftDrawerOpen = !leftDrawerOpen"
           />
         </div>
@@ -32,7 +32,7 @@
             icon="manage_accounts"
             aria-label="Manage_accounts"
             color="black"
-            size="lg"
+            size="26px"
             v-if="IsLoggedIn"
             @click="Route('manageAccount')"
           />
@@ -43,7 +43,7 @@
             icon="person_add"
             aria-label="Person_add"
             color="black"
-            size="lg"
+            size="26px"
             v-else
             @click="Route('createAccount')"
           />
@@ -54,7 +54,7 @@
             icon="logout"
             aria-label="Logout"
             color="black"
-            size="lg"
+            size="26px"
             v-if="IsLoggedIn"
             @click="alert = true"
           />
@@ -65,7 +65,7 @@
             icon="login"
             aria-label="Login"
             color="black"
-            size="lg"
+            size="26px"
             v-else
             @click="Route('login')"
           />
@@ -87,7 +87,7 @@
       </q-list>
     </q-drawer>
 
-    <q-footer class="row justify-around bg-white q-pt-xs q-pb-xs shadow-up-1">
+    <q-footer class="row justify-around bg-white q-pt-none q-pb-none shadow-up-1">
       <div class="col" @click="Route('home')">
         <div class="row justify-center">
           <q-btn
@@ -99,7 +99,7 @@
             icon="home"
             aria-label="home"
             :color="colorHome"
-            size="xl"
+            size="30px"
           />
         </div>
       </div>
@@ -114,9 +114,9 @@
             icon="shopping_bag"
             aria-label="shopping_bag"
             :color="colorShop"
-            size="xl"
+            size="30px"
           >
-            <q-badge color="orange" class="q-mt-sm" floating>{{allCakesAmount}}</q-badge>
+            <q-badge color="orange" class="q-mt-sm q-pt-xs q-pb-xs" style="font-size: 20px" floating>{{allCakesAmount}}</q-badge>
           </q-btn>
         </div>
       </div>
@@ -131,7 +131,7 @@
             icon="pending_actions"
             aria-label="pending_actions"
             :color="colorPending"
-            size="xl"
+            size="30px"
           />
         </div>
       </div>

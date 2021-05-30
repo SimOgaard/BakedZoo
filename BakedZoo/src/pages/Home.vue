@@ -1,6 +1,6 @@
 <template>
   <q-page class="flex-center">
-    <h4 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center">BakedZoo</h4>
+    <h3 class="q-mt-sm q-mb-none text-primary text-weight-bold text-center">BakedZoo</h3>
 
     <div class="row justify-center">
       <q-card square class="col q-pa-lg q-pt-none shadow-0 transparent" style="max-width: 600px">
