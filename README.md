@@ -14,25 +14,25 @@ ignen animation på add to cart button
 
 Appen har designats för att vara enkel att använda med mobilen fastän designen är responsiv och kan användas på surfplatta eller dator. Vi tillgodosåg mobila användare genom att lägga möjliga tabs längst ner och härma traditionella sätt att visa information via kort vyer. Genom att göra detta lyckades vi presentera informationen på ett tydligt och bekant sätt samt att undvika förvirring när man ska navigera hemsidan. Sedan låg vi fokus på att undvika onödigt många steg och knapptryck. Exempel på hur vi gjorde detta är när du tex lägger en order utan att vara inloggad, det som händer är att du blir frågad att logga in och när du gjort det tar den dig tillbaka till din order istället för hemskärmen.
 
-![Kontohantringssidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%201.png?raw=true)
-
 ### Färg
 
 Som primärfärg för appen valdes en mörkare grön. Detta eftersom denna färg ofta förknippas med natur och kunden kommer med stor sannolikhet vara ute efter att upptäcka naturen och djur däri med tanke på att de befinner sig på en djurpark/ett zoo. Färgen förknippas även med lugn vilket även är den känska som en fikapaus ska framkalla. För bakgrunden användes en beigeaktig färg, detta för att kombinera egenskaperna från vit och brun. Vit färg ger mycket run åt övriga färger och låter den starka gröna naturfärgen ta fokus medan den bruna färgen förknippas med naturens jord, träd och stenar. Färgen på alla sidans knappar har även betydelse. "Enter"-knappen på de sidorna som förknippas med kontohantering har fått en av bakgrundens komplementfärger för att inte ta för mycket fokus så fort sidan öppnas men även se estetiskt tillfredsställande ut. Ikonen för knappen som lägger till varor i kundvagnen är orange för att avsiktligt dra kundens uppmärksamhet till den. Detta därför att vi vill att kunden ska köpa vår produkt då det kommer vara vårm inkomstkälla. Initiellt var tanken även att inloggningsikonerna skulle ha en lila färg för att komplementera det gröna lövet bakoms färg men färgen på ikonerna togs bort eftersom den simplistiska designen passade bättre med menyknappen i vänstra hörnet.
 
-![Beställningshanteringssidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%202.png?raw=true)
+![Kontohantringssidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%201.png?raw=true)
 
 ### Position och storlek
 
 Positionen på skärmens olika objekt baserades på ett rutnät på 200 pixlar. Den översta delen av rutnätet används till titeltexten samt sidbeskrivningen eller sökrutan på "home"-sidan. Därefter delades det resterande utrymmet på sidan upp till de olika elementen. För att lätt kunna passa in element i detta rutnät visas alla objekt som kort. Detta gör även det lättare för användarent att separera de olika objekten från varandra. Exempelvis så tar korten på "home" sidan upp två 400 pixlar, alltså två rutor i rutnätet, halvla rutan ockuperas av rutans bild och andra halvan inkluderar namnet beskrivningen och priset. I "about us" sidan var det även meningen att varje kort skulle ta upp en halv ruta var men denna design tog sin itne in i den slutliga produkten.
 
-![Övriga sidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%203.png?raw=true)
+![Beställningshanteringssidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%202.png?raw=true)
 
 ### Komposition
 
 För att försöka få en så balanserad komposition som möjligt har vissa element i designprocessen förskjutits åt sidan. Exempel på detta är korten på de beställningrelaterade sidorna. För att göra plats åt rullningslisten åt höger var planen att de övriga korten skulle förskjutas åt vänster. Detta hände däremot endast i teori.
 Andra områden där kompositionen har tänkts mycket på är enterknappen på de kontorelaterade sidorna som placerades på högersidan för att balansera ut den vänsterrtunga texten i inmatningsområdena.
 Även i "pending orders"-sidan var det tänkt teoretiskt att det totala priser skulle visas på högra sidan av kortet medan allt annat visades till höger för att balansera. Däremot så kom inte heller denna förändring med i slutprodukten. 
+
+![Övriga sidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%203.png?raw=true)
 
 ### Bakgrundsbild
 
