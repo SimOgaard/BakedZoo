@@ -12,11 +12,15 @@ Som primärfärg för appen valdes en mörkare grön. Detta eftersom denna färg
 
 ![Kontohantringssidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%201.png?raw=true)
 
+![Kontohantringssidor från sidan](https://github.com/abbsimoga/BakedZoo/blob/master/images/baked%201.png?raw=true)
+
 ### Position och storlek
 
 Positionen på skärmens olika objekt baserades på ett rutnät på 200 pixlar. Den översta delen av rutnätet används till titeltexten samt sidbeskrivningen eller sökrutan på "home"-sidan. Därefter delades det resterande utrymmet på sidan upp till de olika elementen. För att lätt kunna passa in element i detta rutnät visas alla objekt som kort. Detta gör även det lättare för användarent att separera de olika objekten från varandra. Exempelvis så tar korten på "home" sidan upp två 400 pixlar, alltså två rutor i rutnätet, halvla rutan ockuperas av rutans bild och andra halvan inkluderar namnet beskrivningen och priset. I "about us" sidan var det även meningen att varje kort skulle ta upp en halv ruta var men denna design tog sin itne in i den slutliga produkten.
 
 ![Beställningshanteringssidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%202.png?raw=true)
+
+![Kontohantringssidor från sidan](https://github.com/abbsimoga/BakedZoo/blob/master/images/baked%202.png?raw=true)
 
 ### Komposition
 
@@ -25,6 +29,8 @@ Andra områden där kompositionen har tänkts mycket på är enterknappen på de
 Även i "pending orders"-sidan var det tänkt teoretiskt att det totala priser skulle visas på högra sidan av kortet medan allt annat visades till höger för att balansera. Däremot så kom inte heller denna förändring med i slutprodukten. 
 
 ![Övriga sidor från figma](https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%203.png?raw=true)
+
+![Kontohantringssidor från sidan](https://github.com/abbsimoga/BakedZoo/blob/master/images/baked%203.png?raw=true)
 
 ### Bakgrundsbild
 
