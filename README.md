@@ -14,7 +14,7 @@ ignen animation på add to cart button
 
 Appen har designats för att vara enkel att använda med mobilen fastän designen är responsiv och kan användas på surfplatta eller dator. Vi tillgodosåg mobila användare genom att lägga möjliga tabs längst ner och härma traditionella sätt att visa information via kort vyer. Genom att göra detta lyckades vi presentera informationen på ett tydligt och bekant sätt samt att undvika förvirring när man ska navigera hemsidan. Sedan låg vi fokus på att undvika onödigt många steg och knapptryck. Exempel på hur vi gjorde detta är när du tex lägger en order utan att vara inloggad, det som händer är att du blir frågad att logga in och när du gjort det tar den dig tillbaka till din order istället för hemskärmen.
 
-https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%201.png?raw=true
+![alt text]https://github.com/abbsimoga/BakedZoo/blob/master/images/figma%201.png?raw=true
 
 ### Färg
 
