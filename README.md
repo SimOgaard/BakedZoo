@@ -3,9 +3,9 @@
 BakedZoo är en mobilapp skapad för att förenkla beställningen av bakverk riktad till medelåldersfamiljer.
 
 ## Förstudier
-
-I början av projektet hade vi förstuder där vi läste [detta material](https://uxdesign.cc/how-to-become-a-ui-ux-designer-self-taught-8a511170fd7c) Målgrupp medelåldersfamiljer.
-Zoo hemsidor.
+För att få en bättre förståelse över UX/UI så läste vi igenom [detta material](https://uxdesign.cc/how-to-become-a-ui-ux-designer-self-taught-8a511170fd7c). Detta matrial och dens länkar gav oss en djupare förståelse om ett par grund begrepp inom UX/UI. Dessa begrepp gav oss nya aspekter för hur man ska designa en sida. Dessutom blev begreppen grundstene till många utav våra design val så som hur vi väljer att visa rätterna i tt rutnät för att integrera symetri. I övrigt har vi fokuserat mycket på färg, och hur mäniskans förknipnigar till färg skulle kunna gynna designen.
+När vi hade läst materialet teoretisera över vilka mål grupper som skulle använda våran zoo app. Vi hittade AZA (Accosiation of Zoos and aquariums) som hade gjort en [demografisk analys](https://www.aza.org/partnerships-visitor-demographics) av besökare på zoo. AZA kom framtill att av deras 183 miljoner besökare var 32% vuxna mellan 21-34år och 57% var barn mellan 0-11 år. Av alla grupper som besökte zoo var 69% barnfamiljer. Med dessa siffror drog vi ett antagande att majoriteten av vår användar bas skulle bestå av hungriga medelålders föräldrar med skrikiga barn. Dessa föräldrar kommer då vilja ha en simpel app där man kan beställa mat utan några jobbiga extravaganta funktioner.
+Med denna grund ide började vi designa appen i figma. För inspiration till uppläg och tema så tittade vi på diverase existerande zoo sidor på nätet. Detta tillsammans med matrialet gav oss ett bra verktyg för design proccessen. Anledningen att vi använda just figma var för att enkelt skapa en design som vi sedan kunde intreagera med funktionalitet med hjälp av quasar.
 
 ## Användarupplevelse
 
@@ -45,20 +45,10 @@ Andra områden där kompositionen har tänkts mycket på är enterknappen på de
 
 ### Bakgrundsbild
 
-Med bakgrundsbilden ville vi framhäva naturkänslan som vi ville ha som tema. Därför använde vi oss av en mängd relativt diskreta lös som inte tar allt för mycket uppmärksamhet. Detta visade sig däremot inte spegla djur-aspekten av en djurpark. Först användes en bild av en apa i högra hörnet. Denna visade sig därmot med sin skärande färg ta för mycket uppmärksamhet så fort sidan öppnades. Därför byttes den ut mot två silhouetter av djur i den slutliga produkten.
+Med bakgrundsbilden ville vi framhäva naturkänslan som vi ville ha som tema. Därför använde vi oss av en mängd relativt diskreta löv som inte tar allt för mycket uppmärksamhet. Detta visade sig däremot inte spegla djur-aspekten av en djurpark. Först användes en bild av en apa i högra hörnet. Denna visade sig därmot med sin skärande färg ta för mycket uppmärksamhet så fort sidan öppnades. Därför byttes den ut mot två silhouetter av djur i den slutliga produkten.
 
 
 ## Testing
 Vid ad hoc testing av produkten upptäcktes ett antal bristfälligheter. Buddy testing, då en utvecklare som var ovan med applikationen testade dess funktionalitet, gav en mängd förbättringsområden. Utvecklaren Brian Nguyen tyckte att det kom naturligt att kunna trycka på varje sidan titel för att återvända till "home"-sidan. Knapparna för att lägga till produkter i varukorgen var inte responsive och det var svårt att upptäcka när de blivit tryckta. Ikonen för login var inte heller uppenbar eftersom det uppkom en fråga om det i samband med testningen. Vid testningen råkade även utvecklaren klicka på "create account" när knappen "login" skulle tryckas och med detta upptäcktes det att knapparna var för nära varandra. Samma problem upptäcktes med nagivationsknapparna på nedre delen av skärmen. När utvecklaren placerade en order noterade han även hur han blev tillbakaskickad till "home"-sidan istället för "place order"-sidan om han inte var inloggad innan ordern placerades. Slutligtvis noterade även utvecklaren att texten som beskriver de olika bakverken var mycket liten och svår att läsa. 
 
 Utöver buddy testing utfördes även monkey testing då applikationens alla knappar trycktes slumpmässigt. Inga bristfälligheter upptäcktes däremot under denna testning.
-
-## Förbättringsmöjligheter
-
-### Kvarstående från testing
-
-Under buddy testing var det enstaka funktionalliteter som Brian fann som vi inte kunde implementera i tid. Detta var saker som att login iconen var svår att förstå, men vi antog att vi skulle kräva fler åsikter innan vi ändrade den. Viktigast av allt som vi inte hann göra var att ändra storleken på texten, speciellt den text som innehöll detaljerad information om kakorna.
-
-### Kvarstående från projekt planering
-
-Sedan har vi yttligare funktionallitetet som vi tänkte implementera men aldrig hann. Detta var att ge respons av form av errors när man skriver fel lösen. Vi ansåg att detta dock inte låg i fokus och fokuserade därför på att göra annat. Sedan är funktionalliteten att ändra konto inte ännu implementerat vid backenden. Till sist har vi ingen animation på "Add to cart" knappen, detta är eftersom knappen ligger över ett klickbart kort och vi då måste använda oss utav @click.capture.stop som tar bort knappens ripple animation.
