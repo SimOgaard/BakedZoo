@@ -1,6 +1,11 @@
 # BakedZoo
 
-BakedZoo är en mobilapp som är riktad till medelåldersfamiljer. Appen är gjord för att förenkla beställningen av bakverk.
+BakedZoo är en mobilapp skapad för att förenkla beställningen av bakverk riktad till medelåldersfamiljer.
+
+## Förstudier
+
+I början av projektet hade vi förstuder där vi läste [detta material](https://uxdesign.cc/how-to-become-a-ui-ux-designer-self-taught-8a511170fd7c) Målgrupp medelåldersfamiljer.
+Zoo hemsidor.
 
 ## Användarupplevelse
 
