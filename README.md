@@ -52,3 +52,13 @@ Med bakgrundsbilden ville vi framhäva naturkänslan som vi ville ha som tema. D
 Vid ad hoc testing av produkten upptäcktes ett antal bristfälligheter. Buddy testing, då en utvecklare som var ovan med applikationen testade dess funktionalitet, gav en mängd förbättringsområden. Utvecklaren Brian Nguyen tyckte att det kom naturligt att kunna trycka på varje sidan titel för att återvända till "home"-sidan. Knapparna för att lägga till produkter i varukorgen var inte responsive och det var svårt att upptäcka när de blivit tryckta. Ikonen för login var inte heller uppenbar eftersom det uppkom en fråga om det i samband med testningen. Vid testningen råkade även utvecklaren klicka på "create account" när knappen "login" skulle tryckas och med detta upptäcktes det att knapparna var för nära varandra. Samma problem upptäcktes med nagivationsknapparna på nedre delen av skärmen. När utvecklaren placerade en order noterade han även hur han blev tillbakaskickad till "home"-sidan istället för "place order"-sidan om han inte var inloggad innan ordern placerades. Slutligtvis noterade även utvecklaren att texten som beskriver de olika bakverken var mycket liten och svår att läsa. 
 
 Utöver buddy testing utfördes även monkey testing då applikationens alla knappar trycktes slumpmässigt. Inga bristfälligheter upptäcktes däremot under denna testning.
+
+## Förbättringsmöjligheter
+
+### Kvarstående från testing
+
+Under buddy testing var det enstaka funktionalliteter som Brian fann som vi inte kunde implementera i tid. Detta var saker som att login iconen var svår att förstå, men vi antog att vi skulle kräva fler åsikter innan vi ändrade den. Viktigast av allt som vi inte hann göra var att ändra storleken på texten, speciellt den text som innehöll detaljerad information om kakorna.
+
+### Kvarstående från projekt planering
+
+Sedan har vi yttligare funktionallitetet som vi tänkte implementera men aldrig hann. Detta var att ge respons av form av errors när man skriver fel lösen. Vi ansåg att detta dock inte låg i fokus och fokuserade därför på att göra annat. Sedan är funktionalliteten att ändra konto inte ännu implementerat vid backenden. Till sist har vi ingen animation på "Add to cart" knappen, detta är eftersom knappen ligger över ett klickbart kort och vi då måste använda oss utav @click.capture.stop som tar bort knappens ripple animation.
