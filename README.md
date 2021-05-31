@@ -1,6 +1,6 @@
 # BakedZoo
 
-BakedZoo är en mobilapp skapad för att förenkla beställningen av bakverk riktad till medelåldersfamiljer.
+BakedZoo är en skalbar mobilapplikation skapad för att göra beställningar smidigare hos ett café. Eftersom caféet är positionerat i ett zoo så är appen designad för att minimera problem för alla föräldrar som vill beställa mat till sina barn.
 
 ## Förstudier
 För att få en bättre förståelse över UX/UI så läste vi igenom [detta material](https://uxdesign.cc/how-to-become-a-ui-ux-designer-self-taught-8a511170fd7c). Detta material och dess länkar gav oss en djupare förståelse om ett par grund begrepp inom UX/UI. Dessa begrepp gav oss nya aspekter för hur man ska designa en sida. Dessutom blev begreppen grundstenen till många utav våra designval så som hur vi väljer att visa rätterna i ett rutnät för att integrera symmetri. I övrigt har vi fokuserat mycket på färg, och hur människans förknippningar till färg skulle kunna gynna designen.
